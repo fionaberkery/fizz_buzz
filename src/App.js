@@ -30,11 +30,14 @@ function App() {
   return (
 
     <>
+    <div>
       <h1> FizzBuzz! </h1> 
-      <button value={inputNumber} onClick={handleNextNumber}>Next number</button>    
-      <h2> The next value is {answer} </h2>
+      <br></br> <br></br>
+      <button value={inputNumber} onClick={handleNextNumber}> Play </button>    
+      <br></br>
+      <h2> The Fizzbuzz value is {answer} </h2>
       
-   
+    </div>
     
     </>
   )
