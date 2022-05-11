@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react'
 import './App.css';
 
 function App() {
+
+  const [inputNumber, setInputNumber] = useState(1)
+  const [answer, setAnswer] = useState(0)
+ 
+
+  useEffect(() => {
+    if (inputNumber % 3 === 0 && inputNumber % 5 === 0) {
+      setAnswer("fizzbuz")
+    } else if (inputNumber % 3 === 0) {
+      setAnswer("fizz")
+    } else if (inputNumber % 5 === 0) {
+      setAnswer("buzz")
+    } else {
+      setAnswer(inputNumber);
+    }
+  }, [inputNumber])
+
+  const handleNextNumber = () => {
+    setInputNumber(inputNumber +1)
+    }
+  
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <>
+      <h1> FizzBuzz! </h1> 
+      <button value={inputNumber} onClick={handleNextNumber}>Next number</button>    
+      <h2> The next value is {answer} </h2>
+      
+   
+    
+    </>
+  )
 }
 
 export default App;
